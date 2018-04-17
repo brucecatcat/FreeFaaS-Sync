@@ -1,0 +1,18 @@
+sudo: enabled
+
+language: python
+
+install:
+# Install dependency packages
+ - sudo apt-get install tree -y
+ - pip install boto3
+ - pip install requests
+
+before_script: 
+ - tree
+
+script:
+ - python aws/lambda/pull/main.py
+
+after_script:
+ - tree
